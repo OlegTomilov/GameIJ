@@ -9,9 +9,10 @@ public class Spawner : ObjectPool
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _secondsBetweenSpawn;
 
+
     private float _elapsedTime = 0;
-    private float _minDistantionX = 10;
-    private float _maxDistantionX = 90;
+    private float _minDistantionX = 50;
+    private float _maxDistantionX = 450;
 
     private void Awake()
     {
