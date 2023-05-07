@@ -10,11 +10,12 @@ public class Spawner : ObjectPool
     [SerializeField] private float _secondsBetweenSpawn;
 
     private float _elapsedTime = 0;
+    private float _minDistantionX = 10;
+    private float _maxDistantionX = 90;
 
     private void Awake()
     {
         Initialize(_enemyPrefab);
-
     }
 
     private void Update()
@@ -27,10 +28,10 @@ public class Spawner : ObjectPool
             {
                 _elapsedTime = 0;
 
-                int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
+                float spawnPosition = Random.Range(_minDistantionX, _maxDistantionX);
+                Vector3 spawnPoint = new Vector3(spawnPosition, transform.position.y, transform.position.z);
 
-                SetEnemy(enemy, _spawnPoints[spawnPointNumber].position);
-                
+                SetEnemy(enemy, spawnPoint);
             }
         }
     }
