@@ -17,15 +17,22 @@ public class AnimationsEnemy : MonoBehaviour
     private void OnEnable()
     {
         _enemy.StartAttack += StartAttackAnimation;
+        _enemy.Died += StartDieAnimation;
     }
 
     private void OnDisable()
     {
-        _enemy.StartAttack += StartAttackAnimation;
+        _enemy.StartAttack -= StartAttackAnimation;
+        _enemy.Died -= StartDieAnimation;
     }
 
     private void StartAttackAnimation()
     {
         _animator.SetTrigger("Attack");
+    }
+
+    private void StartDieAnimation()
+    {
+        _animator.SetTrigger("Death");
     }
 }
