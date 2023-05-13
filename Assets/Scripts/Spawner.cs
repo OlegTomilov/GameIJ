@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Spawner : ObjectPool
 {
@@ -42,6 +39,4 @@ public class Spawner : ObjectPool
         enemy.SetActive(true);
         enemy.transform.position = spawnPoint;
     }
-
-
 }
