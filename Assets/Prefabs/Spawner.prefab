@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 0}
   _capacity: 10
-  _enemyPrefab: {fileID: 8093621157001163246, guid: 407c2731c40a01844815a1686f695b41, type: 3}
+  _target: {fileID: 0}
+  _enemyPrefab: {fileID: 8284937201454788741, guid: b6724ef83b91f0b4a9e8e915ca9aea97, type: 3}
   _spawnPoints:
   - {fileID: 8997380588357711148}
   _secondsBetweenSpawn: 2

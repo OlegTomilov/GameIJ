@@ -6,6 +6,9 @@ public class LightingEffect : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _lightingEffect;
+    [SerializeField] private Coin _coin;
+    [SerializeField] private Vilage _vilage;
+    [SerializeField] private SoundEffector _soundEffector;
 
     private Ray _ray;
     private RaycastHit _raycastHit;
@@ -24,12 +27,19 @@ public class LightingEffect : MonoBehaviour
         {
             _ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-            if(Physics.Raycast(_ray, out _raycastHit, _lengthOfRay))
+            if (Physics.Raycast(_ray, out _raycastHit, _lengthOfRay))
             {
-                if (true)
+                if (_raycastHit.collider.tag == "Enemy")
                 {
                     var pointOfInstantiate = _raycastHit.point + new Vector3(0, _distantionAxisZ, 0);
                     SetEffect(_lightingEffect, pointOfInstantiate);
+                    _soundEffector.PlayLightClip();
+                }
+
+                if (_raycastHit.collider.tag == "Coin")
+                {
+                    _vilage.TakeReward();
+                    _soundEffector.PlayCoinClip();
                 }
             }
         }

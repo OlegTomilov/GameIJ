@@ -6,17 +6,14 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private float _damage;
     [SerializeField] private float _delay;
-    //[SerializeField] private Vilage _vilage;
+    [SerializeField] private Enemy _enemy;
     private float _lastAttackTime;
-
-    public Vilage Vilage {get; set;}
-
 
     private void Update()
     {
         if (_lastAttackTime <= 0)
         {
-            AttackTarget(Vilage);
+            AttackTarget(_enemy.Target);
             _lastAttackTime = _delay;
         }
 

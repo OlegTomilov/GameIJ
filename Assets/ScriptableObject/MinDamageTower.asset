@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745e983d4fa2b2345a4bd5a7b8794a1d, type: 3}
+  m_Name: MinDamageTower
+  m_EditorClassIdentifier: 
+  _cost: 10
+  _damage: 1
+  _healthPoint: 10
+  _logo: {fileID: 21300000, guid: 5d7568eae38df134095044a05e0b356b, type: 3}
+  _prefab: {fileID: 8598820266183038320, guid: c06eafddbab139440b8e3918f9f4fbe2, type: 3}
