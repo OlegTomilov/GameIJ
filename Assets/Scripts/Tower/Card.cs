@@ -16,7 +16,5 @@ public class Card : ScriptableObject
     public int Damage => _damage;
     public int HealthPoint => _healthPoint;
     public Sprite Logo => _logo;
-
     public GameObject GetPrefab() { return _prefab; }
-
 }

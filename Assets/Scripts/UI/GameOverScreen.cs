@@ -7,6 +7,7 @@ public class GameOverScreen : MonoBehaviour
 {
     [SerializeField] private GameObject _screen;
     [SerializeField] private Vilage _vilage;
+
     private int _mainScreenIndex = 0;
     private int _gameScreenIndex = 1;
 

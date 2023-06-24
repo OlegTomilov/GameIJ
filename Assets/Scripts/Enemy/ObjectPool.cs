@@ -8,7 +8,8 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private int _capacity;
     [SerializeField] Vilage _target;
     [SerializeField] SoundEffector _soundEffector;
-
+    [SerializeField] Frame _frame;
+ 
     private List<Enemy> _pool = new List<Enemy>();
 
     protected void Initialize(Enemy clone)
@@ -16,7 +17,7 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < _capacity; i++)
         {
             Enemy spawned = Instantiate(clone, clone.transform.position, Quaternion.identity);
-            spawned.SendTarget(_target, _soundEffector);
+            spawned.SendTarget(_target, _soundEffector, _frame);
             spawned.gameObject.SetActive(false);
 
             _pool.Add(spawned);

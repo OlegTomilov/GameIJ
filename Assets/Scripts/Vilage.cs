@@ -5,10 +5,12 @@ using UnityEngine.Events;
 
 public class Vilage : MonoBehaviour
 {
+    private const string _coinCounterAnim = "NotEnough";
+
     private float _maxHealthPoint = 100;
     private float _currentHealthPoint;
-    [SerializeField] private int _money;
 
+    [SerializeField] private int _money;
     [SerializeField] private TMP_Text _textHP;
     [SerializeField] private TMP_Text _textCountCoints;
     [SerializeField] private Coin _coin;

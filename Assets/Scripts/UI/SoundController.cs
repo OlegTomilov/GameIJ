@@ -6,6 +6,7 @@ public class SoundController : MonoBehaviour
 {
     [SerializeField] private AudioSource _sound;
     [SerializeField] private AudioSource _music;
+
     private bool _isSound = true;
     private int _minVolume = 0;
     private int _maxVolume = 1;

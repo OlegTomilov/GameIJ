@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _delay;
     [SerializeField] private Enemy _enemy;
+
     private float _lastAttackTime;
 
     private void Update()

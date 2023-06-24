@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Tower : MonoBehaviour
 {
     [SerializeField] Card _card;
+
     private float _delayTime = 1;
     private float _timer;
 

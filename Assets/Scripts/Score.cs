@@ -6,8 +6,11 @@ using UnityEngine.Events;
 
 public class Score : MonoBehaviour
 {
+    private const string _keyOfScoreSave = "Score";
+
     [SerializeField] private Vilage _vilage;
     [SerializeField] private TMP_Text _text;
+
     private int _score;
     private int _maxScore;
 
@@ -32,14 +35,14 @@ public class Score : MonoBehaviour
         _score += scorePoint;
         _text.text = _score.ToString();
 
-        if(PlayerPrefs.HasKey("Score") == false)
+        if(PlayerPrefs.HasKey(_keyOfScoreSave) == false)
         {
-            PlayerPrefs.SetInt("Score", _score);
+            PlayerPrefs.SetInt(_keyOfScoreSave, _score);
         }
-        else if (PlayerPrefs.HasKey("Score") && PlayerPrefs.GetInt("Score") < _score)
+        else if (PlayerPrefs.HasKey(_keyOfScoreSave) && PlayerPrefs.GetInt(_keyOfScoreSave) < _score)
         {
             _maxScore = _score;
-            PlayerPrefs.SetInt("Score", _maxScore);
+            PlayerPrefs.SetInt(_keyOfScoreSave, _maxScore);
         }
     }
 }

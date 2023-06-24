@@ -29,7 +29,6 @@ public class TowerHeatlh : MonoBehaviour
     private void OnDisable()
     {
         _tower.Destroyed -= DecreaseHealth;
-
     }
 
     private void DecreaseHealth()

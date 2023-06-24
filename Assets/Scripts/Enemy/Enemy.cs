@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     public Vilage Target { get; private set; }
     public SoundEffector SoundEffector { get; private set; }
 
+    private GameObject _frame;
+
 
     private void OnMouseDown()
     {
@@ -27,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Frame"))
+        if(collision.gameObject == _frame)
         {
             StartAttack.Invoke();
             StoppedMove.Invoke(0);
@@ -57,10 +59,11 @@ public class Enemy : MonoBehaviour
         StopCoroutine(Death());
     }
 
-    public void SendTarget(Vilage target, SoundEffector soundEffector) 
+    public void SendTarget(Vilage target, SoundEffector soundEffector, Frame frame) 
     {
         Target = target;
         SoundEffector = soundEffector;
+        _frame = frame.gameObject;
     }
 
     private void DeathEffect()

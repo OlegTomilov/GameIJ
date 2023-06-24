@@ -14,6 +14,7 @@ public class LightingEffect : MonoBehaviour
     private RaycastHit _raycastHit;
     private float _distantionAxisZ = 60;
     private float _lengthOfRay = 500;
+    private float _timeDelayOfEffect = 0.3f;
 
     private void Start()
     {
@@ -54,7 +55,7 @@ public class LightingEffect : MonoBehaviour
 
     private IEnumerator DestroyEffect(GameObject effect)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(_timeDelayOfEffect);
         effect.SetActive(false);
     }
 }

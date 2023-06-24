@@ -7,7 +7,6 @@ public class Building : MonoBehaviour
     [SerializeField] private Vector2 _buildingSize;
     [SerializeField] private Renderer _renderer;
 
-
     public void SetColor(bool isAvailableToBuild)
     {
         if (isAvailableToBuild)

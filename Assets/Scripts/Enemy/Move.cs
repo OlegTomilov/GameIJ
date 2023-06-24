@@ -44,5 +44,4 @@ public class Move : MonoBehaviour
         _speed = speed;
         _rigidBody.freezeRotation = true;
     }
-
 }
