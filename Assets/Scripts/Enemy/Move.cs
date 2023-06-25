@@ -5,9 +5,8 @@ public class Move : MonoBehaviour
     [SerializeField] private GameObject _goal;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private Rigidbody _rigidBody;
-    [SerializeField] private Spawner _spawner;
-
     [SerializeField] private float _maxSpeed;
+
     private float _speed;
 
     private void Start()
@@ -33,15 +32,15 @@ public class Move : MonoBehaviour
     {
         _speed = _maxSpeed;
         _rigidBody.freezeRotation = false;
-        _enemy.StoppedMove += StopMove;
+        _enemy.StoppedMove += OnStopedMove;
     }
 
     private void OnDisable()
     {
-        _enemy.StoppedMove -= StopMove;
+        _enemy.StoppedMove -= OnStopedMove;
     }
 
-    private void StopMove(float speed)
+    private void OnStopedMove(float speed)
     {
         _speed = speed;
         _rigidBody.freezeRotation = true;

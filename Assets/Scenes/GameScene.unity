@@ -1607,8 +1607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
-  _lightingEffect: {fileID: 7584147288303818086}
-  _coin: {fileID: 2869709956266116291, guid: ef2041896b30a16499b21dcdbfaf71ff, type: 3}
+  _lightingEffect: {fileID: 7584147288303818080}
   _vilage: {fileID: 248852496}
   _soundEffector: {fileID: 963194230}
 --- !u!114 &963194230
@@ -1626,10 +1625,6 @@ MonoBehaviour:
   _audioSource: {fileID: 923746362}
   _coinClip: {fileID: 8300000, guid: 7ff14cc9b989ac74dbc1af1291dc0734, type: 3}
   _lightClip: {fileID: 8300000, guid: a32f3f57427248f4ab4fb31945a9cbe3, type: 3}
-  _zombieBornClip: {fileID: 8300000, guid: dcfe1606dd737a5478e87d115c663d61, type: 3}
-  _zombieDieClip: {fileID: 8300000, guid: 0f24be1f79069644897925b92622335d, type: 3}
-  _ghoulBornClip: {fileID: 8300000, guid: 862c25b7fee9e0a4c87e68d07bcb85c3, type: 3}
-  _ghoulDieClip: {fileID: 8300000, guid: b99e29dbd9074a541922a97cb5d02b90, type: 3}
 --- !u!1 &1010712407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,7 +2165,7 @@ GameObject:
   - component: {fileID: 1430438817}
   - component: {fileID: 1430438816}
   m_Layer: 5
-  m_Name: CarBar
+  m_Name: CardBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,7 +2204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardHolderPosition: {fileID: 1430438815}
-  _card: {fileID: 2102228711436120849, guid: 3f6f819bc0392574eb307232189c9a9d, type: 3}
+  _prefab: {fileID: 0}
   _vilage: {fileID: 248852496}
   _cards:
   - {fileID: 11400000, guid: 15c202dec96b42c4cbb0fcef2402e68e, type: 2}

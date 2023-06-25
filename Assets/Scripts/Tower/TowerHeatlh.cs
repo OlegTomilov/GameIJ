@@ -23,15 +23,15 @@ public class TowerHeatlh : MonoBehaviour
 
     private void OnEnable()
     {
-        _tower.Destroyed += DecreaseHealth;
+        _tower.Destroyed += OnDecreasedHealth;
     }
 
     private void OnDisable()
     {
-        _tower.Destroyed -= DecreaseHealth;
+        _tower.Destroyed -= OnDecreasedHealth;
     }
 
-    private void DecreaseHealth()
+    private void OnDecreasedHealth()
     {
         _healthPoint--;
         ChangeIndication();

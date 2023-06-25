@@ -11,23 +11,24 @@ public class CoinSpawn : MonoBehaviour
     private int _minRandom = 0;
     private int _maxRandom = 10;
     private int _positionY = 5;
+    private int _maxNumberOfProbability = 3;
 
     private void OnEnable()
     {
-        _enemyHealth.SpawnedCoin += Spawn;
+        _enemyHealth.SpawnedCoin += OnSpawned;
     }
 
     private void OnDisable()
     {
-        _enemyHealth.SpawnedCoin -= Spawn;
+        _enemyHealth.SpawnedCoin -= OnSpawned;
     }
 
-    private void Spawn(Vector3 deathPoint)
+    private void OnSpawned(Vector3 deathPoint)
     {
         int randomNumber = Random.Range(_minRandom, _maxRandom);
         Vector3 spawnPoint = new Vector3(deathPoint.x, _positionY, deathPoint.z);
 
-        if (randomNumber < 3)
+        if (randomNumber < _maxNumberOfProbability)
         {
             Instantiate(_coin, spawnPoint, Quaternion.identity);
         }

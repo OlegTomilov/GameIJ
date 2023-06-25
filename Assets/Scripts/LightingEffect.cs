@@ -5,8 +5,7 @@ using UnityEngine;
 public class LightingEffect : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] private GameObject _lightingEffect;
-    [SerializeField] private Coin _coin;
+    [SerializeField] private ParticleSystem _lightingEffect;
     [SerializeField] private Vilage _vilage;
     [SerializeField] private SoundEffector _soundEffector;
 
@@ -19,7 +18,7 @@ public class LightingEffect : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
-        _lightingEffect.SetActive(false);
+        _lightingEffect.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -33,7 +32,7 @@ public class LightingEffect : MonoBehaviour
                 if (_raycastHit.collider.GetComponent<Enemy>())
                 {
                     var pointOfInstantiate = _raycastHit.point + new Vector3(0, _distantionAxisZ, 0);
-                    SetEffect(_lightingEffect, pointOfInstantiate);
+                    SetEffect(_lightingEffect.gameObject, pointOfInstantiate);
                     _soundEffector.PlayLightClip();
                 }
 

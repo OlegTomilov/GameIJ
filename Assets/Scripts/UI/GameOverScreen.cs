@@ -11,20 +11,21 @@ public class GameOverScreen : MonoBehaviour
     private int _mainScreenIndex = 0;
     private int _gameScreenIndex = 1;
 
-    private void EndGame()
-    {
-        _screen.SetActive(true);
-        Time.timeScale = 0;
-    }
 
     private void OnEnable()
     {
-        _vilage.EndedGame += EndGame;
+        _vilage.EndedGame += OnEndedGame;
     }
 
     private void OnDisable()
     {
-        _vilage.EndedGame -= EndGame;
+        _vilage.EndedGame -= OnEndedGame;
+    }
+
+    private void OnEndedGame()
+    {
+        _screen.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Play()

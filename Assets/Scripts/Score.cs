@@ -22,15 +22,15 @@ public class Score : MonoBehaviour
 
     private void OnEnable()
     {
-        _vilage.TakedScore += Increase;
+        _vilage.TakedScore += OnIncreased;
     }
 
     private void OnDisable()
     {
-        _vilage.TakedScore -= Increase;
+        _vilage.TakedScore -= OnIncreased;
     }
 
-    private void Increase(int scorePoint)
+    private void OnIncreased(int scorePoint)
     {
         _score += scorePoint;
         _text.text = _score.ToString();

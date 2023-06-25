@@ -5,22 +5,22 @@ using UnityEngine.Events;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private GameObject _takeEffect;
+    [SerializeField] private ParticleSystem _takeEffect;
 
     private float _delayOfDestroy;
 
     public void OnMouseDown()
     {
-        _takeEffect.SetActive(true);
-        StartCoroutine(delayDestroy());
+        _takeEffect.gameObject.SetActive(true);
+        StartCoroutine(DelayDestroy());
     }
 
     private void OnEnable()
     {
-        StopCoroutine(delayDestroy());
+        StopCoroutine(DelayDestroy());
     }
 
-    private IEnumerator delayDestroy()
+    private IEnumerator DelayDestroy()
     {
         yield return new WaitForSeconds(_delayOfDestroy);
         Destroy(gameObject);

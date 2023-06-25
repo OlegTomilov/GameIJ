@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CardHolderManager : MonoBehaviour
 {
     [SerializeField] private Transform _cardHolderPosition;
-    [SerializeField] private GameObject _card;
+    [SerializeField] private GameObject _prefab;
     [SerializeField] private Vilage _vilage;
     [SerializeField] private Card[] _cards;
 
@@ -23,7 +24,7 @@ public class CardHolderManager : MonoBehaviour
 
     private void CreateCard(int number)
     {
-        GameObject card = Instantiate(_card, _cardHolderPosition);
+        GameObject card = Instantiate(_prefab, _cardHolderPosition);
 
         CardManager cardManager = card.GetComponent<CardManager>();
         cardManager.TransferObjects(_cards[number], _vilage);

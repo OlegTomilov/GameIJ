@@ -2516,7 +2516,6 @@ MonoBehaviour:
   _goal: {fileID: 3074493852885327819, guid: 414b38a63b169be4c902bab31f4eecf4, type: 3}
   _enemy: {fileID: 4706216571153072115}
   _rigidBody: {fileID: 4706216571153072015}
-  _spawner: {fileID: 7980649846599931528, guid: d4d88510f2c3d6b4586e23115bb9366d, type: 3}
   _maxSpeed: 5
 --- !u!114 &4706216571153072115
 MonoBehaviour:
@@ -2532,7 +2531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 2
   _scorePoint: 30
-  _dropBlood: {fileID: 7807468166702192965}
+  _dropBlood: {fileID: 7807468166702192967}
   _attack: {fileID: 4706216571153072013}
   _enemyHealth: {fileID: 8565050928104843980}
 --- !u!114 &8565050928104843980

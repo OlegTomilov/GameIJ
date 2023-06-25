@@ -22,15 +22,15 @@ public class EnemyHealth : MonoBehaviour
         }
 
         _currentHealthPoint = _maxHealtPoint;
-        _enemy.DecreasedHP += DecreaseHealth;
+        _enemy.DecreasedHP += OnDecreasedHealth;
     }
 
     private void OnDisable()
     {
-        _enemy.DecreasedHP -= DecreaseHealth;
+        _enemy.DecreasedHP -= OnDecreasedHealth;
     }
 
-    private void DecreaseHealth()
+    private void OnDecreasedHealth()
     {
         _currentHealthPoint--;
 
@@ -50,7 +50,7 @@ public class EnemyHealth : MonoBehaviour
         {
             for (int i = 0; i < damage; i++)
             {
-                DecreaseHealth();
+                OnDecreasedHealth();
             }
         }
     }

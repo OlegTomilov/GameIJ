@@ -7,11 +7,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _damage;
     [SerializeField] private int _scorePoint;
-    [SerializeField] private GameObject _dropBlood;
+    [SerializeField] private ParticleSystem _dropBlood;
     [SerializeField] private Attack _attack;
     [SerializeField] private EnemyHealth _enemyHealth;
 
     private float _dealyOfDeath = 2f;
+    private GameObject _frame;
 
     public event UnityAction StartAttack;
     public event UnityAction Died;
@@ -21,7 +22,6 @@ public class Enemy : MonoBehaviour
     public Vilage Target { get; private set; }
     public SoundEffector SoundEffector { get; private set; }
 
-    private GameObject _frame;
 
 
     private void OnMouseDown()
@@ -39,27 +39,27 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator Death()
-    {
-        Target.IncreaseScore(_scorePoint);
-        yield return new WaitForSeconds(_dealyOfDeath);
-        gameObject.SetActive(false);
-    }
-
     private void OnEnable ()
     {
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
         gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX 
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-        _enemyHealth.Died += DeathEffect;
-        _dropBlood.SetActive(false);
+        _enemyHealth.Died += OnDied;
+        _dropBlood.gameObject.SetActive(false);
         _attack.enabled = false;
     }
 
     private void OnDisable()
     {
-        _enemyHealth.Died -= DeathEffect;
+        _enemyHealth.Died -= OnDied;
         StopCoroutine(Death());
+    }
+
+    private IEnumerator Death()
+    {
+        Target.IncreaseScore(_scorePoint);
+        yield return new WaitForSeconds(_dealyOfDeath);
+        gameObject.SetActive(false);
     }
 
     public void SendTarget(Vilage target, SoundEffector soundEffector, Frame frame) 
@@ -69,12 +69,12 @@ public class Enemy : MonoBehaviour
         _frame = frame.gameObject;
     }
 
-    private void DeathEffect()
+    private void OnDied()
     {
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         StartCoroutine(Death());
         StoppedMove.Invoke(0);
         Died.Invoke();
-        _dropBlood.SetActive(true);
+        _dropBlood.gameObject.SetActive(true);
     }
 }
