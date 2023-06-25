@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Vilage : MonoBehaviour
 {
-    private const string _coinCounterAnim = "NotEnough";
+    private const string CoinCounterAnimCommand = "NotEnough";
 
     private float _maxHealthPoint = 100;
     private float _currentHealthPoint;
@@ -62,6 +62,6 @@ public class Vilage : MonoBehaviour
 
     public void PlayAnimation()
     {
-        _animator.SetTrigger("NotEnough");
+        _animator.SetTrigger(CoinCounterAnimCommand);
     }
 }

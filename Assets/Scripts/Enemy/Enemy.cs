@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Attack _attack;
     [SerializeField] private EnemyHealth _enemyHealth;
 
+    private float _dealyOfDeath = 2f;
+
     public event UnityAction StartAttack;
     public event UnityAction Died;
     public event UnityAction<float> StoppedMove;
@@ -40,14 +42,15 @@ public class Enemy : MonoBehaviour
     private IEnumerator Death()
     {
         Target.IncreaseScore(_scorePoint);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(_dealyOfDeath);
         gameObject.SetActive(false);
     }
 
     private void OnEnable ()
     {
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX 
+            | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
         _enemyHealth.Died += DeathEffect;
         _dropBlood.SetActive(false);
         _attack.enabled = false;

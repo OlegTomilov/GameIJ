@@ -37,7 +37,8 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
                 int xPosition = Mathf.RoundToInt(worldPosition.x);
                 int zPosition = Mathf.RoundToInt(worldPosition.z);
 
-                if (xPosition < maxDistantionX && xPosition > minDistantionX && zPosition < maxDistantionZ && zPosition > minDistantionZ)
+                if (xPosition < maxDistantionX && xPosition > minDistantionX 
+                    && zPosition < maxDistantionZ && zPosition > minDistantionZ)
                     _isAvailableToBuild = true;
                 else 
                     _isAvailableToBuild = false;
@@ -75,7 +76,8 @@ public class CardManager : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoin
         }
         else
         {
-            _grid[(int)_draggingBuilding.transform.position.x, (int)_draggingBuilding.transform.position.z] = _building;
+            _grid[(int)_draggingBuilding.transform.position.x, 
+                (int)_draggingBuilding.transform.position.z] = _building;
             _draggingBuilding.GetComponent<Collider>().enabled = true;
             _building.ResetColor();
             _vilage.BuyTower(_card.Cost);

@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class AnimationsEnemy : MonoBehaviour
 {
-    private const string _deathAnimCommand = "Death";
-    private const string _attackAnimCommand = "Attack";
+    private const string DeathAnimCommand = "Death";
+    private const string AttackAnimCommand = "Attack";
 
     [SerializeField] private Enemy _enemy;
 
@@ -29,11 +29,11 @@ public class AnimationsEnemy : MonoBehaviour
 
     private void StartAttackAnimation()
     {
-        _animator.SetTrigger(_attackAnimCommand);
+        _animator.SetTrigger(AttackAnimCommand);
     }
 
     private void StartDieAnimation()
     {
-        _animator.SetTrigger(_deathAnimCommand);
+        _animator.SetTrigger(DeathAnimCommand);
     }
 }

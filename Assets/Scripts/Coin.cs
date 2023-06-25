@@ -7,6 +7,8 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] private GameObject _takeEffect;
 
+    private float _delayOfDestroy;
+
     public void OnMouseDown()
     {
         _takeEffect.SetActive(true);
@@ -20,7 +22,7 @@ public class Coin : MonoBehaviour
 
     private IEnumerator delayDestroy()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(_delayOfDestroy);
         Destroy(gameObject);
     }
 

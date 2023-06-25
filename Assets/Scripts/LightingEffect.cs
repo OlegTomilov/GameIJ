@@ -30,14 +30,14 @@ public class LightingEffect : MonoBehaviour
 
             if (Physics.Raycast(_ray, out _raycastHit, _lengthOfRay))
             {
-                if (_raycastHit.collider.tag == "Enemy")
+                if (_raycastHit.collider.GetComponent<Enemy>())
                 {
                     var pointOfInstantiate = _raycastHit.point + new Vector3(0, _distantionAxisZ, 0);
                     SetEffect(_lightingEffect, pointOfInstantiate);
                     _soundEffector.PlayLightClip();
                 }
 
-                if (_raycastHit.collider.tag == "Coin")
+                if (_raycastHit.collider.GetComponent<Coin>())
                 {
                     _vilage.TakeReward();
                     _soundEffector.PlayCoinClip();

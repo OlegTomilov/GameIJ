@@ -17,8 +17,10 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _goal.transform.position, _speed * Time.deltaTime);
-        Vector3 adjustedPosition = new Vector3(_goal.transform.position.x, transform.position.y, _goal.transform.position.z);
+        transform.position = Vector3.MoveTowards
+            (transform.position, _goal.transform.position, _speed * Time.deltaTime);
+        Vector3 adjustedPosition = new Vector3
+            (_goal.transform.position.x, transform.position.y, _goal.transform.position.z);
 
         if(_speed > 0)
         {

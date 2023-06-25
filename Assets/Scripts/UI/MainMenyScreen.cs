@@ -7,7 +7,7 @@ using TMPro;
 
 public class MainMenyScreen : MonoBehaviour
 {
-    private const string _keyOfScoreSave = "Score";
+    private const string KeyOfScoreSave = "Score";
 
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _exitButton;
@@ -21,7 +21,7 @@ public class MainMenyScreen : MonoBehaviour
     }
     private void SetMaxScore()
     {
-        _textMaxScore.text = PlayerPrefs.GetInt(_keyOfScoreSave).ToString();
+        _textMaxScore.text = PlayerPrefs.GetInt(KeyOfScoreSave).ToString();
         PlayerPrefs.Save();
     }
 
@@ -38,6 +38,6 @@ public class MainMenyScreen : MonoBehaviour
 
     public void DelKey()
     {
-        PlayerPrefs.DeleteKey(_keyOfScoreSave);
+        PlayerPrefs.DeleteKey(KeyOfScoreSave);
     }
 }
